@@ -1,13 +1,14 @@
 package main
 
 import (
-	"time"
 	"fmt"
+	"runtime"
+	"time"
 )
 
 type MyError struct {
 	time time.Time
-	msg string
+	msg  string
 }
 
 func (e *MyError) Error() string {
@@ -16,10 +17,14 @@ func (e *MyError) Error() string {
 }
 
 func run() error {
-	return &MyError{time.Now(), "服务器出差错了"}
+	return &MyError{
+		time: time.Now(),
+		msg:  "服务器出差错了"}
 }
 
 func main() {
+	num := runtime.NumCPU()
+	fmt.Println(num)
 	//Go 程序使用 error 值来表示错误状态
 	if err := run(); err != nil {
 		fmt.Println(err)

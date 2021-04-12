@@ -12,8 +12,8 @@ func main() {
 	var num = 250
 	fmt.Println(num)
 
-	gay冰 := "gaygayde"
-	fmt.Println(gay冰)
+	gay := "gaygayde"
+	fmt.Println(gay)
 
 	var p1 int
 	var p2 float32
